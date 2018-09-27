@@ -1,0 +1,182 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Desafio - Nexaas</title>
+
+<link
+	href="http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/img/icons/favicon.ico"
+	rel="shortcut icon">
+<link
+	href="http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/img/icons/touch.png"
+	rel="apple-touch-icon-precomposed">
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway:500,500i,600,700"
+	rel="stylesheet">
+
+<link rel='stylesheet' id='contact-form-7-css'
+	href='http://nexaas.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.9.2'
+	media='all' />
+<link rel='stylesheet' id='wprps_slick_style-css'
+	href='http://nexaas.com/wp-content/plugins/wp-responsive-recent-post-slider/assets/css/slick.css?ver=4.9.8'
+	media='all' />
+<link rel='stylesheet' id='wprps_recent_post_style-css'
+	href='http://nexaas.com/wp-content/plugins/wp-responsive-recent-post-slider/assets/css/recent-post-style.css?ver=4.9.8'
+	media='all' />
+<link rel='stylesheet' id='normalize-css'
+	href='http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/css/normalize.min.css?ver=1.0'
+	media='all' />
+<link rel='stylesheet' id='foundation-css'
+	href='http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/css/foundation6.min.css?ver=1.0'
+	media='all' />
+<link rel='stylesheet' id='swiper-css'
+	href='http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/css/swiper.min.css?ver=1.0'
+	media='all' />
+<link rel='stylesheet' id='html5blank-css'
+	href='http://nexaas.com/wp-content/themes/wp-nexaas-theme/style.css?ver=1537388839'
+	media='all' />
+<!-- CSS INCLUDE -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	
+
+<!-- EOF CSS INCLUDE -->
+<style>
+.pagination-centered {
+	text-align: center;
+}
+
+.disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.pointer-disabled {
+	pointer-events: none;
+}
+</style>
+</head>
+<body>
+	<!-- START PAGE CONTAINER -->
+	<main role="main">
+	<section class="jumbotron text-center">
+		<div class="container">
+			<div class="page-title">
+				<h2 class="jumbotron-heading">
+					<span class="fa fa-arrow-circle-o-left"></span> Detalhe do Pedido
+				</h2>
+			</div>
+			<!-- END PAGE TITLE -->
+			<div class="row">
+				<h4>
+					<span>Dados do Comprador</span>
+				</h4>
+				<table class="table datatable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="buyer : ${order.buyer}">
+							<td th:text="${buyer.id}">Text ...</td>
+							<td th:text="${buyer.name}">Text ...</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br />
+			<div class="row">
+				<h4>
+					<span>Dados do Comerciante</span>
+				</h4>
+				<table class="table datatable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Endereco</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="merchant : ${order.merchant}">
+							<td th:text="${merchant.id}">Text ...</td>
+							<td th:text="${merchant.name}">Text ...</td>
+							<td th:text="${merchant.address}">Text ...</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br />
+			<div class="row">
+				<h4>
+					<span>Dados do Produto</span>
+				</h4>
+				<table class="table datatable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Preço</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="product : ${order.product}">
+							<td th:text="${product.id}">Text ...</td>
+							<td th:text="${product.description}">Text ...</td>
+							<td th:text="${product.price}">Text ...</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br />
+			<div class="row">
+				<h4>
+					<span>Resumo do Pedido</span>
+				</h4>
+				<table class="table datatable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="order : ${order}">
+							<td th:text="${order.id}">Text ...</td>
+							<td th:text="${order.amount}">Text ...</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row">
+				<div class="close">
+					<a th:href="@{/orders}">
+						<button type="button" class="btn btn-primary btn-condensed"
+							name="voltar">
+							<i class="glyphicon glyphicon-menu-left"></i>
+							Voltar
+						</button>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	</main>
+	<!-- END PAGE CONTENT -->
+	<footer class="text-muted">
+		<div class="container">
+			<p class="float-right">
+				<a th:href="@{/}">Voltar ao início</a>
+			</p>
+			<p>Desenvolvido por &copy; Rogério FS Barros</p>
+		</div>
+	</footer>
+
+</body>
+</html>

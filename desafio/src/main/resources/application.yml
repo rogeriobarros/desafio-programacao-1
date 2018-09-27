@@ -1,0 +1,57 @@
+security:
+    oauth2:
+        client:
+            clientId: 340047413430-vp8kcpfudbaqa5mmegt9f0s6an6msnia.apps.googleusercontent.com
+            clientSecret: lr3MBv4fl0GjD_fEf8xeV67f
+            accessTokenUri: https://www.googleapis.com/oauth2/v3/token
+            userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+            tokenName: oauth_token
+            authenticationScheme: query
+            clientAuthenticationScheme: form
+            scope: profile
+        resource:
+            userInfoUri: https://www.googleapis.com/userinfo/v2/me
+            preferTokenInfo: false
+            
+spring:
+  servlet:  
+    multipart.max-file-size:  2MB
+    multipart.max-request-size: 10MB
+    
+  h2:
+    console:
+          enabled: true
+          path: /console
+          settings:
+            trace: false
+            web-allow-others: false
+            
+  datasource:
+      url: jdbc:h2:mem:nexaas;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      platform: h2
+      username: sa
+      password:
+      driverClassName: org.h2.Driver
+      
+  jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+      generate-ddl: true
+      hibernate:
+        ddl-auto: create
+        naming:
+          physical-strategy:  org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      properties:
+        hibernate:
+          show_sql: true
+          use_sql_comments: false
+          format_sql: false
+          use-new-id-generator-mappings: true
+
+  thymeleaf:
+    check-template-location: true
+    prefix: classpath:/templates/
+    suffix: .html
+    servlet:  
+      content-type: text/html
+    cache: false
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Desafio - Nexaas</title>
+
+<link
+	href="http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/img/icons/favicon.ico"
+	rel="shortcut icon">
+<link
+	href="http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/img/icons/touch.png"
+	rel="apple-touch-icon-precomposed">
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway:500,500i,600,700"
+	rel="stylesheet">
+
+<link rel='stylesheet' id='contact-form-7-css'
+	href='http://nexaas.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.9.2'
+	media='all' />
+<link rel='stylesheet' id='wprps_slick_style-css'
+	href='http://nexaas.com/wp-content/plugins/wp-responsive-recent-post-slider/assets/css/slick.css?ver=4.9.8'
+	media='all' />
+<link rel='stylesheet' id='wprps_recent_post_style-css'
+	href='http://nexaas.com/wp-content/plugins/wp-responsive-recent-post-slider/assets/css/recent-post-style.css?ver=4.9.8'
+	media='all' />
+<link rel='stylesheet' id='normalize-css'
+	href='http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/css/normalize.min.css?ver=1.0'
+	media='all' />
+<link rel='stylesheet' id='foundation-css'
+	href='http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/css/foundation6.min.css?ver=1.0'
+	media='all' />
+<link rel='stylesheet' id='swiper-css'
+	href='http://nexaas.com/wp-content/themes/wp-nexaas-theme/assets/css/swiper.min.css?ver=1.0'
+	media='all' />
+<link rel='stylesheet' id='html5blank-css'
+	href='http://nexaas.com/wp-content/themes/wp-nexaas-theme/style.css?ver=1537388839'
+	media='all' />
+
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<main role="main">
+	<section th:if="${message}" class="jumbotron-fluid text-center">
+		<div class="badge-danger">
+			<h5 th:text="${message}"></h5>
+		</div>
+	</section>
+	<section class="jumbotron text-center">
+		<div class="container">
+
+			<h4 class="jumbotron-heading">Envie o arquivo</h4>
+
+			<form class="contact-forms-wrapper" method="POST"
+				action="/desafio/uploadform" enctype="multipart/form-data">
+				<div class="d-flex justify-content-between align-items-center">
+					<input class="file-input" type="file" name="file" /><br /> <br />
+
+					<div class="btn-group">
+						<button type="submit"
+							class="btn btn-sm btn-outline-secondary button-nexaas"
+							value="Enviar">Enviar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	</main>
+	<footer class="text-muted">
+		<div class="container">
+			<p class="float-right">
+				<a th:href="@{/}">Voltar ao início</a>
+			</p>
+			<p>Desenvolvido por &copy; Rogério FS Barros</p>
+		</div>
+	</footer>
+</body>
+</html>
